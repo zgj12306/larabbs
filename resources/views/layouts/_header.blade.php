@@ -15,7 +15,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul>
+            <ul class="navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 <li class="nav-item"><a class="nav-link" href="#">登录</a> </li>
                 <li class="nav-item"><a class="nav-link" href="#">注册</a> </li>
