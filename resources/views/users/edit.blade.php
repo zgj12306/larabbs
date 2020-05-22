@@ -12,22 +12,35 @@
 
                 <div class="card-body">
 
-                    <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8">
+                    <form action="{{ route('users.update', $user->id) }}" method="POST" accept-charset="UTF-8" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         @include('shared._error')
 
                         <div class="form-group">
                             <label for="name-field">用户名</label>
-                            <input class="form-control" type="text" name="name" id="name-field" value="{{ old('name', $user->name) }}">
+                            <input class="form-control" type="text" name="name" id="name-field"
+                                   value="{{ old('name', $user->name) }}">
                         </div>
                         <div class="form-group">
                             <label for="email-field">邮 箱</label>
-                            <input class="form-control" type="text" name="email" id="email-field" value="{{ old('email', $user->email) }}">
+                            <input class="form-control" type="text" name="email" id="email-field"
+                                   value="{{ old('email', $user->email) }}">
                         </div>
                         <div class="form-group">
                             <label for="introduction-field">个人简介</label>
-                            <input class="form-control" type="text" name="introduction" id="introduction-field" value="{{ old('introduction', $user->introduction) }}">
+                            <input class="form-control" type="text" name="introduction" id="introduction-field"
+                                   value="{{ old('introduction', $user->introduction) }}">
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="" class="avatar-lable">用户头像</label>
+                            <input type="file" name="avatar" class="form-control-file">
+
+                            @if($user->avatar)
+                                <br>
+                                <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="200"/>
+                            @endif
                         </div>
                         <div class="well well-sm">
                             <button type="submit" class="btn btn-primary">保存</button>
