@@ -10,17 +10,16 @@ class TopicRequest extends Request
         {
             // CREATE
             case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
             // UPDATE
+                //幂等性
             case 'PUT':
+                //非幂等性，局部更新
             case 'PATCH':
             {
                 return [
-                    // UPDATE ROLES
+                    'title' => 'require|min:2',
+                    'body' => 'require|min:3',
+                    'category_id' => 'require|numeric',
                 ];
             }
             case 'GET':
@@ -35,7 +34,8 @@ class TopicRequest extends Request
     public function messages()
     {
         return [
-            // Validation messages
+            'title.min' => '标题必须至少两个字符',
+            'body.min' => '文章内容必须至少三个字符',
         ];
     }
 }
