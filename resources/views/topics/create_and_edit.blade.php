@@ -33,13 +33,13 @@
                                 <select class="form-control" name="category_id" required>
                                     <option value="" hidden disabled selected>请选择分类</option>
                                     @foreach($categories as $value)
-                                        <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                        <option value="{{ $value->id }}" @if($value->id == old('category_id', $topic->category_id )) selected @endif>{{ $value->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <textarea name="body" class="form-control" id="editor" rows="6" placeholder="请填入至少三个字"></textarea>
+                                <textarea name="body" class="form-control" id="editor" rows="6" placeholder="请填入至少三个字">{{ old('body', $topic->body ) }}</textarea>
                             </div>
                             <div class="well well-sm">
                                 <button type="submit" class="btn btn-primary"><i class="far fa-save mr-2" aria-hidden="true"></i> 保存</button>
