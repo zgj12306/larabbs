@@ -6,11 +6,10 @@ class TopicRequest extends Request
 {
     public function rules()
     {
-        switch($this->method())
-        {
+        switch ($this->method()) {
             // CREATE
             case 'POST':
-            // UPDATE
+                // UPDATE
                 //幂等性
             case 'PUT':
                 //非幂等性，局部更新
@@ -25,9 +24,9 @@ class TopicRequest extends Request
             case 'GET':
             case 'DELETE':
             default:
-            {
-                return [];
-            };
+                {
+                    return [];
+                };
         }
     }
 

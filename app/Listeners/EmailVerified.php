@@ -21,7 +21,7 @@ class EmailVerified
     /**
      * Handle the event.
      *
-     * @param  Verified  $event
+     * @param Verified $event
      * @return void
      */
     public function handle(Verified $event)
