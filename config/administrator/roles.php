@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
 return [
@@ -65,7 +66,7 @@ return [
     ],
 
     // 表单验证错误时定制错误消息
-    'message' => [
+    'messages' => [
         'name.required' => '标识不能为空',
         'name.unique' => '标识已经存在',
     ],
