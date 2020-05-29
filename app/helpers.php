@@ -32,7 +32,7 @@ function model_link($title, $model, $prefix = '')
     // 使用站点URL拼接
     $url = config('app.url') . $prefix . $model_name . '/' . $model->id;
 
-    return '<a href="' . $url . '" target="_blank">' . e($title) . '</a>';
+    return '<a href="' . $url . '" target="_blank">' . $title . '</a>';
 }
 
 function model_plural_name($model)

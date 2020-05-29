@@ -6,29 +6,28 @@ use Illuminate\Support\Facades\Auth;
 $location = public_path() . '/uploads/images/avatars/';
 return [
     // 页面标题
-    'title' => '用户',
+    'title'       => '用户',
 
     // 模型单数，用作页面「新建 $single」
-    'single' => '用户',
+    'single'      => '用户',
 
     // 数据模型，用作数据的 CRUD
-    'model' => User::class,
+    'model'       => User::class,
 
     // 设置当前页面的访问权限，通过返回布尔值来控制权限。
     // 返回 True 即通过权限验证，False 则无权限访问并从 Menu 中隐藏
-    'permission' => function()
-    {
+    'permission'  => function () {
         return Auth::user()->can('manage_users');
     },
 
     // 字段负责渲染「数据表格」，由无数的「列」组成
-    'columns' => [
+    'columns'     => [
         'id',
 
         'avatar' => [
             'title' => '头像',
 
-            'output' => function($avatar, $model) {
+            'output'   => function ($avatar, $model) {
                 return empty($avatar) ? 'N/A' : '<img src="' . $avatar . '" width="40">';
             },
 
@@ -37,10 +36,10 @@ return [
         ],
 
         'name' => [
-            'title' => '用户名',
+            'title'    => '用户名',
             'sortable' => false,
-            'output' => function ($name, $model) {
-                return '<a href="/users/'.$model->id.'" target=_blank>'.$name.'</a>';
+            'output'   => function ($name, $model) {
+                return '<a href="/users/' . $model->id . '" target=_blank>' . $name . '</a>';
             },
         ],
 
@@ -49,37 +48,37 @@ return [
         ],
 
         'operation' => [
-            'title' => '管理',
+            'title'    => '管理',
             'sortable' => false,
         ],
     ],
 
     // 「模型表单」设置项
     'edit_fields' => [
-        'name' => [
+        'name'     => [
             'title' => '用户名',
         ],
-        'email' => [
+        'email'    => [
             'title' => '邮箱',
         ],
         'password' => [
             'title' => '密码',
 
             // 表单使用 input 类型 password
-            'type' => 'password',
+            'type'  => 'password',
         ],
-        'avatar' => [
+        'avatar'   => [
             'title' => '用户头像',
 
-            'type' => 'image',
+            'type'     => 'image',
 
             // 图片上传必须设置图片存放路径
             'location' => $location,
         ],
-        'roles' => [
-            'title' => '用户角色',
+        'roles'    => [
+            'title'      => '用户角色',
             // 指定数据的类型为关联模型
-            'type' => 'relationship',
+            'type'       => 'relationship',
 
             // 关联模型的字段，用来关联显示
             'name_field' => 'name',
@@ -87,8 +86,8 @@ return [
     ],
 
     // 「数据过滤」设置
-    'filters' => [
-        'id' => [
+    'filters'     => [
+        'id'   => [
             'title' => '用户 ID',
         ],
         'name' => [
