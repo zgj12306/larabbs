@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\EnsureEmailIsVerified;
+use App\Http\Middleware\RecordLastActivedTime;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -37,6 +38,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             EnsureEmailIsVerified::class,
+            RecordLastActivedTime::class,
         ],
 
         'api' => [

@@ -11,6 +11,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
+    use Traits\LastActiveAtHelper;
     use Traits\ActiveUserHelper;
     use HasRoles;
     use \Illuminate\Auth\MustVerifyEmail;
