@@ -3,7 +3,6 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
-$location = public_path() . '/uploads/images/avatars/';
 return [
     // 页面标题
     'title'       => '用户',
@@ -16,7 +15,8 @@ return [
 
     // 设置当前页面的访问权限，通过返回布尔值来控制权限。
     // 返回 True 即通过权限验证，False 则无权限访问并从 Menu 中隐藏
-    'permission'  => function () {
+    'permission'  => function ()
+    {
         return Auth::user()->can('manage_users');
     },
 
@@ -73,7 +73,7 @@ return [
             'type'     => 'image',
 
             // 图片上传必须设置图片存放路径
-            'location' => $location,
+            'location' => public_path() . '/uploads/images/avatars/',
         ],
         'roles'    => [
             'title'      => '用户角色',
